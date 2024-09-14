@@ -20,7 +20,7 @@ The code is written in the [Julia programming language](https://julialang.org). 
 
 ## Required packages 
 
-To run the content of scripts in [src](/src), the following Julia packages are required: SCIP, ThreadsX, BangBang, Random, SparseArrays, JuMP.
+To run the content of scripts in [src](/src), the following Julia packages are required: SCIP, BangBang, Random, SparseArrays, JuMP.
 
 Yon can check whether you have installed these required packages by running [package_check.jl (in src)](/src/packge_check.jl)
 ```julia
