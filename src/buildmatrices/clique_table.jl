@@ -8,18 +8,24 @@ using SparseArrays
 clq_table[i] includes a list, e.g. [x1, x2, x3, ...], then you can find cliques containing i by S[x1], S[x2],... or con_matrix[J[x1]],...
 """
 function clique_table(S::Vector{Vector{Int64}}, binary_number::Int64)
-    #clq is a lenght(S) * binary_number sparse matrix, which cachce all cliques
-    clq = spzeros(length(S), binary_number)
+    #clq is a lenght(S) * binary_number sparse matrix, which caches all cliques 
+    I, J, K = Int64[], Int64[], Int64[]
     for j in 1:length(S)
         local s = S[j]
         for i in s
             if i <= binary_number
-                clq[j, i] = 1
+                push!(I, j)
+                push!(J, i)
+                push!(K, 1)
             else
-                clq[j, i - binary_number] = -1
+                push!(I, j)
+                push!(J, i - binary_number)
+                push!(K, -1)
             end
         end
     end
+    clq = sparse(I, J, K, length(S), binary_number);
+    
     #then cache clq with a clique table
     clq_table = Vector{Int64}[]
     clq_p_n = Vector{Int64}[]
