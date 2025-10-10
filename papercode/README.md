@@ -18,11 +18,11 @@ Note that: sometimes the program maybe killed. The potential reason might be con
 If it happens, you can check in which case the program is killed in "presolved\_res/presolve\_res\_threadnum.csv" where threadnum is the number of threads.
 For example, if it is killed in threadnum = 8 and the 100th instance, you can open "presolve.sh" and change the file as 
 
-"""
+```julia
 #comment threadnum = 1,2,4
 julia --threads 8 presolve_models.sh 8 100 192
 julia --threads 16 presolve_models.sh 16 1 192
-"""
+```
 
 ## SCIP Solving Stage
 
@@ -39,7 +39,7 @@ we left comments for how to disable SCIP's probing. (Just need to uncomment some
 
 Runtime results will be saved in "SCIP\_res/runtime\_1\_192.csv".
 
-"""julia
+```julia
 using StatsBase
 #suppose list a caches runtime results for org scip, b caches runtimes of one presolved method, and c is corresponding presolving time
 I, J = Int64[], Int64[]
@@ -63,7 +63,7 @@ runtime1, runtime2 = geomean(a[I].+10), geomean(b[I].+10)
 #suppose list d, e, f, g caches upper and lower bounds for org scip and one presolved method
 gap1 = geomean([abs(d[i] - e[i])/max(abs[d[i]], abs[e[i]]) for i in J].+1)
 gap2 = geomean([abs(f[i] - g[i])/max(abs[f[i]], abs[g[i]]) for i in J].+1)
-"""
+```
 
 #Here is the new experiments in Sec. 5.6
 
@@ -72,13 +72,13 @@ gap2 = geomean([abs(f[i] - g[i])/max(abs[f[i]], abs[g[i]]) for i in J].+1)
 Run "Nohup bash four_runs.sh" to solve all models with 4 methods, default SCIP, default SCIP disable Probing, Two-Column Probing + default SCIP, Two-Column Probing + default SCIP disable Probing. All results will be saved in Folder "SCIP\_res".
 
 If you want to change the random seed, please open file "four_runs.jl", and change line 12
-"""
+```julia
 path1 = "scip_res/4runtime_seed0"
-"""
+```
 and line 18
-"""
+```julia
 rand_seed = 0
-"""
+```
 to any other seeds, for example path1 = "scip_res/4runtime_seed1" and rand_seed = 1. We use 0, 1, 2, 3, 4.
 
 
