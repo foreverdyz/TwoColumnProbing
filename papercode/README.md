@@ -65,7 +65,7 @@ gap1 = geomean([abs(d[i] - e[i])/max(abs[d[i]], abs[e[i]]) for i in J].+1)
 gap2 = geomean([abs(f[i] - g[i])/max(abs[f[i]], abs[g[i]]) for i in J].+1)
 ```
 
-#Here is the new experiments in Sec. 5.6
+# Experiments in Sec. 5.6
 
 ## Compare 4 methods with different random seeds
 
