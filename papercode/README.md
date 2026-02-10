@@ -10,9 +10,9 @@ in "all_cases.txt". However, when using our two-column probing, there still be s
 have had conflicts between each other. As a result, in "presolved\_res/presolve\_res\_threadnum.csv", some instances are detected 0 pair of variables. In this
 case, we will not test their runtime with SCIP.
 
-## Presolving Stage
+## Presolving Stage (Experiments for Sec. 5.3)
 
-Run "Nohup bash presolve.sh" to generate presolved results, which will be saved in Folder "presolved\_res". 
+Run "Nohup bash presolve.sh" to generate presolved results, which will be saved in Folder "presolved\_res". The presolving runtime results correspond to Sec. 5.3: Table 1 and Figure 2.
 
 Note that: sometimes the program maybe killed. The potential reason might be continuously running too many instances in one program and the server kills it.
 If it happens, you can check in which case the program is killed in "presolved\_res/presolve\_res\_threadnum.csv" where threadnum is the number of threads.
@@ -24,18 +24,19 @@ julia --threads 8 presolve_models.sh 8 100 192
 julia --threads 16 presolve_models.sh 16 1 192
 ```
 
-## SCIP Solving Stage
 
-Run "Nohup bash solve_models.sh" to solve all reduced models with SCIP and all results will be saved in Folder "SCIP\_res".
+## SCIP Solving Stage (Experiments for Sec. 5.4)
+
+Run "Nohup bash solve_models.sh" to solve all reduced models with SCIP and all results will be saved in Folder "SCIP\_res". The SCIP runtime results correspond to Sec. 5.4: Table 2 and Table 3.
 
 Note that, due to the same reason, the program is sometimes killed. You can use the similar method to solve this question by checking "SCIP\_res/runtime\_1\_192.csv".
 
-## Disable SCIP's Probing
+## Disable SCIP's Probing (Experiments for Sec. 5.5)
 
 There are some experiments in our manuscript that diasbled SCIP's original probing method. You can do so by checking script "solve_models.jl". There are some lines
-we left comments for how to disable SCIP's probing. (Just need to uncomment some lines).
+we left comments for how to disable SCIP's probing. (Just need to uncomment some lines). The SCIP runtime results correspond to Sec. 5.5: Table 4 and Table 5.
 
-## Results Comp.
+## Results Comp (How we calculate all 1-shifted geometric mean results.)
 
 Runtime results will be saved in "SCIP\_res/runtime\_1\_192.csv".
 
@@ -69,7 +70,7 @@ gap2 = geomean([abs(f[i] - g[i])/max(abs[f[i]], abs[g[i]]) for i in J].+1)
 
 ## Compare 4 methods with different random seeds
 
-Run "Nohup bash four_runs.sh" to solve all models with 4 methods, default SCIP, default SCIP disable Probing, Two-Column Probing + default SCIP, Two-Column Probing + default SCIP disable Probing. All results will be saved in Folder "SCIP\_res".
+Run "Nohup bash four_runs.sh" to solve all models with 4 methods, default SCIP, default SCIP disable Probing, Two-Column Probing + default SCIP, Two-Column Probing + default SCIP disable Probing. All results will be saved in Folder "SCIP\_res". The SCIP runtime results correspond to Sec. 5.6, Table 7.
 
 If you want to change the random seed, please open file "four_runs.jl", and change line 12
 ```julia
