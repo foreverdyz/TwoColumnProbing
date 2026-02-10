@@ -8,7 +8,7 @@ If you want to reproduce the results in our paper, please follow the instruction
 
 ## Something Important!!!
 
-Please install an advanced version of JuMP to reproduce our results! Since JuMP in an older version (before v.1.22) has some issues in reading .mps file.
+Please install an advanced version of JuMP to reproduce our results! Since JuMP in an older version (before v.1.28) has some issues in reading .mps file.
 
 If you want the most recent JuMP (a prototype), it can be obtained by:
 
