@@ -1,9 +1,5 @@
 # Serial and Parallel Tow-Column Probing for Mixed-Integer Programming
 
-Note that, due to the limit of GitHub, you may need to download instances from MIPLIB 2017 (https://miplib.zib.de/downloads/benchmark.zip) and move them into mipdata folder. Then you can run all code.
-
-#Here is the previous version of README.md, for experiments in Sec.5.2-5.5, we do not change anything in the revision!!!
-
 ## Test Cases
 In our manuscript, there are 190 cases and some removed cases because of memory exceeding. Now we solved the memroy issue and there are 192 instances saved
 in "all_cases.txt". However, when using our two-column probing, there still be some cases are not impacted by our method, e.g. all pairs of binary variables
