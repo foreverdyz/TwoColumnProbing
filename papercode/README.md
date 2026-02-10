@@ -6,6 +6,14 @@ in "all_cases.txt". However, when using our two-column probing, there still be s
 have had conflicts between each other. As a result, in "presolved\_res/presolve\_res\_threadnum.csv", some instances are detected 0 pair of variables. In this
 case, we will not test their runtime with SCIP.
 
+## Software Versions
+
+Julia 1.8.5 
+
+JuMP 1.28 
+
+SCIP v0.11.14
+
 ## Presolving Stage (Experiments for Sec. 5.3)
 
 Run "Nohup bash presolve.sh" to generate presolved results, which will be saved in Folder "presolved\_res". The presolving runtime results correspond to Sec. 5.3: Table 1 and Figure 2.
