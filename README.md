@@ -4,9 +4,13 @@ This archive is under the [GNU General Public License v3.0](LICENSE).
 
 The software and data in this repository are a snapshot of the software and data that were used in the research reported on in [Serial and Parallel Two-Column Probing for Mixed-Integer Programming](https://arxiv.org/abs/2408.16927) by Yongzheng Dai and Chen Chen.
 
+If you want to reproduce the results in our paper, please follow the instructions in [papercode](/papercode). If you want to use our method, you can use either code from [src](/src) or [papercode](/papercode).
+
 ## Something Important!!!
 
-Please install an alpha version of JuMP to reproduce our result! The prototype can be obtained by:
+Please install an advanced version of JuMP to reproduce our results! Since JuMP in an older version (before v.1.22) has some issues in reading .mps file.
+
+If you want the most recent JuMP (a prototype), it can be obtained by:
 
 ```julia
 pkg> add JuMP  #Press ']' to enter the Pkg REPL mode.
